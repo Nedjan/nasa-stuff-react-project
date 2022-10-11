@@ -50,8 +50,6 @@ button:hover {
 
 .buttoncontainer {
   display: inline-block;
-  float: left;
-  width: 50%;
   text-align: center;
   margin: 10px auto;
 }
@@ -273,6 +271,12 @@ input {
 
 .searchstuff {
   text-align: center;
+}
+
+/* main-container*/
+.main-container {
+  justify-content: space-around;
+  display: flex;
 }
 
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../ui-components/button'
 
 export default function searchForm(props) {
   const [query, setQuery] = useState('');
@@ -14,7 +15,7 @@ export default function searchForm(props) {
       <h3 className="searchtext">Enter a Celestial Term:</h3>
       <form onSubmit={handleSubmit}>
         <input type="text" value={query} onChange={event => setQuery(event.target.value)} />
-        <button id="searchformbutton" onClick={handleSubmit}>Submit</button>
+        <Button onClick={handleSubmit} title="Submit" />
       </form>
     </div>
   )
