@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-import SearchButton from '../components/SearchButton'
-import PlayButton from '../components/PlayButton'
+import SearchButton from '../components/search/SearchButton'
+import PlayButton from '../components/game/PlayButton'
 
 
 export default function mainContainer() {

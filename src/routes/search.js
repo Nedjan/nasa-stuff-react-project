@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SearchForm from '../components/SearchForm'
-import SearchResults from '../components/SearchResults'
+import SearchForm from '../components/search/SearchForm'
+import SearchResults from '../components/search/SearchResults'
 import $ from 'jquery'
 
 export default function search() {

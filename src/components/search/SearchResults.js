@@ -1,5 +1,5 @@
 import React from 'react';
-import moon from '../images/moon.jpg'
+import moon from '../../images/moon.jpg'
 
 
 export default function searchResults(props) {

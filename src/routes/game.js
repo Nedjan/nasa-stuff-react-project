@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery'
 
-import PlayAgain from '../components/PlayAgain'
+import PlayAgain from '../components/game/PlayAgain'
 
 export default function game() {
   // state tracks the current image from the api, the item trhe player guessed, attempts played, and whether the game has been played once
