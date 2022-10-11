@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
-import SearchForm from '../components/search/SearchForm'
-import SearchResults from '../components/search/SearchResults'
-import $ from 'jquery'
+import SearchForm from '../components/search/SearchForm';
+import SearchResults from '../components/search/SearchResults';
+import { useImages } from '../requests/nasaApi';
 
 export default function search() {
-  const [images, setImages] = useState([]);
-
-  //The NASA API is called and then the results go to the state
-  const fetchImages = (query = "") => {
-    $.ajax({
-      url: `https://images-api.nasa.gov/search?q=${query}`
-    }).then(json => {
-      setImages(json.collection.items);
-    })
-  }
+  const [query, setQuery] = useState('');
+  const images = useImages(query);
 
   return (
     <div>
-     <SearchForm fetchImages={fetchImages} />
+     <SearchForm  onSetQuery={(value) => setQuery(value)} />
      <SearchResults images={images} />
     </div>
   );

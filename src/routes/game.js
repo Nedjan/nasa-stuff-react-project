@@ -80,7 +80,7 @@ export default function game() {
       {correctStreak > 0 ? <div>Current Streak: {correctStreak}</div> : null}
       <div></div>
       <div className="titlegame">Guess which one is associated with this image:</div>
-      <img src={image} id="namegameimage" />
+      <img src={image} id="namegameimage" alt="universe related thingy" />
       {renderGame()}
       {gamePlayed && correctGuess ? "You're Right!" : null}
       {gamePlayed && !correctGuess ? "Wrong, Try Again. Correct Answer: " + item : null}
