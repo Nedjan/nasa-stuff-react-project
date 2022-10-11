@@ -41,7 +41,12 @@ export default function game() {
     )
   }
 
-  const resetGame = () => setGameReset(!gameReset);
+  const playAgainButton = () => {
+    if (gamePlayed) {
+      return  <PlayAgain resetGame={() => setGameReset(!gameReset)} />
+    }
+    return null;
+  }
 
   //the player chooses one item and this function determines if it's a win
   const guessChoice = (word) => {
@@ -72,7 +77,7 @@ export default function game() {
       {renderGame()}
       {gamePlayed && correctGuess ? "You're Right!" : null}
       {gamePlayed && !correctGuess ? "Wrong, Try Again. Correct Answer: " + item : null}
-      {gamePlayed ? <PlayAgain resetGame={resetGame} /> : null}
+      {playAgainButton()}
     </div>
   );
 }
