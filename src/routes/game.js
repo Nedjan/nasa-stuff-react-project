@@ -74,11 +74,11 @@ export default function game() {
   //Renders the game image, the choices, and determines if the game is done and can be played again
   return (
     <div className="game-container">
-        {renderHighscore()}
         <div className="titlegame">Guess which one is associated with this image:</div>
         <div class='image-container'>
           {image ? <img src={image} id="namegameimage" alt="universe related thingy" /> : null}
           {<div className="namegamebutton">{answerChoices}</div>}
+          {renderHighscore()}
         </div>
         {resultText()}
         {playAgainButton}
