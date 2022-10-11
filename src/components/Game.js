@@ -11,6 +11,8 @@ export default function game() {
   const [gameCount, setGameCount] = useState(0);
   const [gameReset, setGameReset] = useState(false);
   const [correctGuess, setCorrectGuess] = useState(false);
+  const [correctStreak, setCorrectStreak] = useState(0);
+  const [highscore, setHighScore] = useState(0);
 
   useEffect(() => {
     getGameImage();
@@ -57,6 +59,14 @@ export default function game() {
   const guessChoice = (word) => {
     setCorrectGuess(item === word);
     setGamePlayed(true);
+    if (item === word) {
+      setCorrectStreak(correctStreak + 1);
+    } else {
+      if (correctStreak > highscore) {
+        setHighScore(correctStreak);
+      }
+      setCorrectStreak(0);
+    }
   }
 
   const renderGame = () => {
@@ -66,6 +76,9 @@ export default function game() {
   //Renders the game image, the choices, and determines if the game is done and can be played again
   return (
     <div className="namegame" >
+      {highscore > 0 ? <div>Current Highscore: {highscore}</div> : null}
+      {correctStreak > 0 ? <div>Current Streak: {correctStreak}</div> : null}
+      <div></div>
       <div className="titlegame">Guess which one is associated with this image:</div>
       <img src={image} id="namegameimage" />
       {renderGame()}
