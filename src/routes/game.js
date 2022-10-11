@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useImages } from '../apis/nasa';
 import PlayAgain from '../components/game/PlayAgain'
+import Button from '../components/ui-components/button';
 
 export default function game() {
   // state tracks the current image from the api, the item trhe player guessed, attempts played, and whether the game has been played once
@@ -36,7 +37,7 @@ export default function game() {
   const playGame = () => {
     return spaceKeywords.map(word =>
       <div className="guessing" key={word}>
-        <button onClick={ e => guessChoice(word)} id={word}>{word}</button>
+        <Button onClick={ e => guessChoice(word)} id={word} title={word} />
       </div>
     )
   }
