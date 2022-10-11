@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Button from '../ui-components/button'
 
 export default function playAgain(props) {
   return (
     <div className="playagainbutton">
-      <button onClick={props.resetGame}>Again!</button>
-      <Link to="/"><button className="back">Go Back</button></Link>
+      <Button title='Again!' onClick={props.resetGame} />
+      <Link to="/"><Button title='Go Back!' /></Link>
     </div>
   );
 }

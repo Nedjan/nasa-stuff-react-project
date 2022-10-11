@@ -103,6 +103,11 @@ button:hover {
   margin: 10px 0 80px 0;
 }
 
+.playagainbutton .buttoncontainer {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .namegamebutton {
   margin: 30px auto 90px auto;
   display: grid;
