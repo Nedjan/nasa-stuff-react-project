@@ -7,7 +7,7 @@ import Game from './routes/game';
 
 import './App.css';
 
-import Header from './containers/Header';
+import Header from './components/layout/header';
 
 export default function() {
   //the welcome component has the header/navbar and the button to choose to search is toggled
