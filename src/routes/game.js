@@ -5,7 +5,6 @@ import PlayAgain from '../components/game/playAgain';
 import HighScore from '../components/game/highscore';
 import Alternatives from '../components/game/alternatives';
 import Result from '../components/game/result';
-import Button from '../components/ui-components/button';
 
 export default function game() {
   // state tracks the current image from the api, the item the player guessed, attempts played, and whether the game has been played once
