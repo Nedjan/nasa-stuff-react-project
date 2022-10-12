@@ -50,8 +50,6 @@ button:hover {
 
 .buttoncontainer {
   display: inline-block;
-  float: left;
-  width: 50%;
   text-align: center;
   margin: 10px auto;
 }
@@ -64,7 +62,7 @@ button:hover {
   border-width: 10px;
 }
 
-.namegame {
+.game-container {
   color: #f9f8b1;
   display: block;
   float: left;
@@ -73,8 +71,17 @@ button:hover {
   margin: 0 auto;
 }
 
-.namegame img {
+.game-container img {
   max-width: 400px;
+  max-height: 400px;
+}
+
+.game-container .image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .results {
@@ -105,8 +112,17 @@ button:hover {
   margin: 10px 0 80px 0;
 }
 
+.playagainbutton .buttoncontainer {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .namegamebutton {
-  margin: 30px 0 90px 0;
+  margin: 30px 50px 90px 50px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
 }
 
 .noresult {
@@ -201,7 +217,7 @@ button:hover {
 /* Header */
 
 .placeholder {
-  height: 300px;
+  height: 170px;
 }
 .navbar {
   display: block;
@@ -269,6 +285,12 @@ input {
 
 .searchstuff {
   text-align: center;
+}
+
+/* main-container*/
+.main-container {
+  justify-content: space-around;
+  display: flex;
 }
 
 
