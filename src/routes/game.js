@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import { useImages } from '../apis/nasa';
-import PlayAgain from '../components/game/PlayAgain'
+import PlayAgain from '../components/game/playAgain';
+import HighScore from '../components/game/highscore';
+import Alternatives from '../components/game/alternatives';
+import Result from '../components/game/result';
 import Button from '../components/ui-components/button';
 
 export default function game() {
@@ -33,24 +36,6 @@ export default function game() {
     setImage(images[randomNumber].links[0].href);
   }, [item, gameReset, images, finishedFetching])
 
-  //the game choices are rendered
-  const answerChoices = spaceKeywords.map(word =>
-    <div className="guessing" key={word}>
-      <Button onClick={ e => guessClicked(word)} id={word} title={word} />
-    </div>
-  );
-
-  const playAgainButton = gamePlayed ? <PlayAgain resetGame={() => setGameReset(!gameReset)} /> : null;
-
-  const resultText = () => {
-    if (!gamePlayed) return null;
-    if (correctGuess) {
-      return "You're Right!";
-    } else {
-      return "Wrong, Try Again. Correct Answer: " + item;
-    }
-  }
-
   //the player chooses one item and this function determines if it's a win
   const guessClicked = (word) => {
     setCorrectGuess(item === word);
@@ -65,23 +50,17 @@ export default function game() {
     }
   }
 
-  const renderHighscore = () => {
-    const score = highscore > 0 ? <div>Current Highscore: {highscore}</div> : null;
-    const streak = correctStreak > 0 ? <div>Current Streak: {correctStreak}</div> : null;
-    return <div class='highscore'>{score}{streak}</div>
-  }
-
   //Renders the game image, the choices, and determines if the game is done and can be played again
   return (
     <div className="game-container">
-        <div className="titlegame">Guess which one is associated with this image:</div>
-        <div class='image-container'>
-          {image ? <img src={image} id="namegameimage" alt="universe related thingy" /> : null}
-          {<div className="namegamebutton">{answerChoices}</div>}
-          {renderHighscore()}
-        </div>
-        {resultText()}
-        {playAgainButton}
+      <div className="titlegame">Guess which one is associated with this image:</div>
+      <div class='image-container'>
+        {image ? <img src={image} id="namegameimage" alt="universe related thingy" /> : null}
+        <Alternatives keywords={spaceKeywords} guessClicked={guessClicked} />
+        <HighScore highscore={highscore} correctStreak={correctStreak} />
+      </div>
+      <Result visible={gamePlayed} correctGuess={correctGuess} item={item} />
+      <PlayAgain visible={gamePlayed} resetGame={() => setGameReset(!gameReset)} />
     </div>
   );
 }
